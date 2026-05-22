@@ -216,6 +216,158 @@ function Hero() {
   )
 }
 
+/* ─── Story Section ─── */
+const STORY_STEPS = [
+  {
+    icon: "🚿",
+    color: "#0369A1",
+    bg: "rgba(3,105,161,0.07)",
+    title: "Сбрасываем усталость",
+    text: "После рабочего дня — время для себя. Первым делом — сбросить усталость вместе с одеждой и окунуться в освежающий душ.",
+  },
+  {
+    icon: "🔥",
+    color: "#DC2626",
+    bg: "rgba(220,38,38,0.07)",
+    title: "Заряд энергии",
+    text: "Динамичное хот‑занятие, чтобы почувствовать прилив энергии. Затем — баня: жар парилки, а следом — бодрящая купель.",
+  },
+  {
+    icon: "🌙",
+    color: "#3730A3",
+    bg: "rgba(55,48,163,0.07)",
+    title: "Тишина и покой",
+    text: "Зона медитации: устроиться на мягких качелях, закрыть глаза и позволить себе немного поспать. Тишина, покой и полное расслабление.",
+  },
+  {
+    icon: "🥗",
+    color: "#059669",
+    bg: "rgba(5,150,105,0.07)",
+    title: "Лёгкий перекус",
+    text: "Лёгкий перекус в уютном кафе — и пора уделить внимание деталям. Маникюр и педикюр с нежным массажем стоп и молочной ванночкой.",
+  },
+  {
+    icon: "✂️",
+    color: "#BE185D",
+    bg: "rgba(190,24,93,0.07)",
+    title: "Образ становится совершеннее",
+    text: "Аккуратная стрижка кончиков волос, освежающий пилинг и стильная укладка. Рядом — магазинчик с БАДами, косметикой и цветами.",
+  },
+  {
+    icon: "🍹",
+    color: "#5B21B6",
+    bg: "rgba(91,33,182,0.07)",
+    title: "Вечер продолжается",
+    text: "Свидание отменилось — не беда. Лёгкий макияж и — в кафе, которое к вечеру превращается в уютный клуб с ПП‑напитками.",
+  },
+  {
+    icon: "⛺",
+    color: "#10B981",
+    bg: "rgba(16,185,129,0.07)",
+    title: "Остаться до утра",
+    text: "Не хочется уходить? В медитативной зоне ставят палатки, зажигают мягкие светильники. Вайбовая атмосфера — и просыпаешься отдохнувшим.",
+  },
+]
+
+function StorySection() {
+  return (
+    <section className="py-24 px-6 relative overflow-hidden">
+      <div
+        className="absolute inset-0 -z-10 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(16,185,129,0.04) 0%, transparent 70%)",
+        }}
+      />
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#10B981] mb-3 block">Один вечер в HAVEN</span>
+          <h2 className="text-4xl md:text-6xl font-black text-[#1E1B4B] leading-none" style={{ fontFamily: "Unbounded, sans-serif" }}>
+            После рабочего дня —<br />
+            <span style={{ background: "linear-gradient(135deg, #5B21B6, #10B981)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              время для себя
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {STORY_STEPS.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.55, delay: i * 0.07 }}
+              className="group relative rounded-3xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: "rgba(255,255,255,0.85)",
+                border: "1.5px solid rgba(0,0,0,0.05)",
+                boxShadow: "0 2px 20px rgba(0,0,0,0.04)",
+              }}
+              whileHover={{ boxShadow: `0 16px 48px ${step.bg}` }}
+            >
+              {/* colored accent top bar */}
+              <div
+                className="absolute top-0 left-6 right-6 h-0.5 rounded-full transition-all duration-300 group-hover:left-0 group-hover:right-0"
+                style={{ background: `linear-gradient(90deg, ${step.color}, transparent)` }}
+              />
+
+              {/* step number */}
+              <span
+                className="absolute top-4 right-5 text-xs font-black opacity-20"
+                style={{ fontFamily: "Unbounded, sans-serif", color: step.color, fontSize: "2.5rem", lineHeight: 1 }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4 transition-transform duration-300 group-hover:scale-110"
+                style={{ background: step.bg }}
+              >
+                {step.icon}
+              </div>
+
+              <h3
+                className="text-base font-black mb-2 leading-tight"
+                style={{ fontFamily: "Unbounded, sans-serif", color: "#1E1B4B", fontSize: "0.9rem" }}
+              >
+                {step.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-500">{step.text}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-14 text-center"
+        >
+          <div
+            className="inline-block px-8 py-5 rounded-3xl"
+            style={{
+              background: "linear-gradient(135deg, rgba(91,33,182,0.06), rgba(16,185,129,0.06))",
+              border: "1.5px solid rgba(91,33,182,0.1)",
+            }}
+          >
+            <p className="text-base md:text-lg font-medium text-[#1E1B4B] leading-relaxed max-w-2xl">
+              🫐 Всё что хочешь — и если после нет желания идти по ночным улочкам домой,{" "}
+              <span className="font-black" style={{ color: "#5B21B6" }}>можно остаться здесь.</span>
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── Zones ─── */
 const ZONES = [
   {
@@ -589,6 +741,7 @@ export default function Index() {
       <Nav />
       <main className="relative z-10">
         <Hero />
+        <StorySection />
         <Stats />
         <Zones />
         <DayFlow />
