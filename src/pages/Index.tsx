@@ -142,10 +142,7 @@ function Hero() {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="text-lg md:text-xl text-gray-500 max-w-lg leading-relaxed mb-10"
         style={{ fontWeight: 300 }}
-      >
-        Зашёл после работы — сбросил всё лишнее.<br />
-        Йога, баня, спа, кафе, клуб — всё в одном.
-      </motion.p>
+      ></motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
