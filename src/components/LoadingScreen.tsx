@@ -24,11 +24,17 @@ export default function LoadingScreen() {
     >
       <div className="text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="font-serif text-5xl mb-2 tracking-widest"
-          style={{ color: "#e8c49a" }}
+          className="font-black text-6xl mb-2 tracking-widest"
+          style={{
+            background: "linear-gradient(135deg, #FFD600 0%, #F59E0B 40%, #A855F7 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            filter: "drop-shadow(0 0 30px rgba(255,214,0,0.5))"
+          }}
         >
           HAVEN
         </motion.div>
@@ -36,8 +42,8 @@ export default function LoadingScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xs tracking-[0.4em] uppercase mb-6"
-          style={{ color: "rgba(232,196,154,0.5)" }}
+          className="text-xs tracking-[0.4em] uppercase mb-6 font-bold"
+          style={{ color: "rgba(168,85,247,0.8)" }}
         >
           Wellness · Spa · Club
         </motion.p>
@@ -46,7 +52,7 @@ export default function LoadingScreen() {
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="h-px w-48 mx-auto origin-left"
-          style={{ background: "rgba(232,196,154,0.5)" }}
+          style={{ background: "linear-gradient(90deg, #FFD600, #A855F7)" }}
         />
       </div>
     </motion.div>

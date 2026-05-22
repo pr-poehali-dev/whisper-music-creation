@@ -244,11 +244,11 @@ export default function Scene() {
   return (
     <>
       {/* Ambient lighting */}
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={0.7} color="#fff8f0" />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} color="#c8a97e" />
-      <pointLight position={[0, 8, 3]} intensity={0.3} color="#e8c49a" />
-      <spotLight position={[0, 5, 5]} intensity={0.4} angle={0.6} penumbra={1} color="#ffe8cc" />
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={0.9} color="#FFD600" />
+      <pointLight position={[-10, -5, -5]} intensity={0.7} color="#A855F7" />
+      <pointLight position={[0, 8, 3]} intensity={0.5} color="#F472B6" />
+      <spotLight position={[0, 5, 5]} intensity={0.6} angle={0.6} penumbra={1} color="#ffffff" />
 
       {textures.map((texture, index) => (
         <FloatingImage key={index} texture={texture} index={index} rotation={rotation} />
