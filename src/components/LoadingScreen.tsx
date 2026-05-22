@@ -27,15 +27,26 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-serif text-4xl mb-4"
+          className="font-serif text-5xl mb-2 tracking-widest"
+          style={{ color: "#e8c49a" }}
         >
-          Загрузка
+          HAVEN
         </motion.div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xs tracking-[0.4em] uppercase mb-6"
+          style={{ color: "rgba(232,196,154,0.5)" }}
+        >
+          Wellness · Spa · Club
+        </motion.p>
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="h-[2px] w-48 mx-auto bg-accent origin-left"
+          className="h-px w-48 mx-auto origin-left"
+          style={{ background: "rgba(232,196,154,0.5)" }}
         />
       </div>
     </motion.div>
